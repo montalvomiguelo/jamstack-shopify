@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        jamstack-store
+        {{ shop.name }}
       </h1>
       <h2 class="subtitle">
         My excellent Nuxt.js project
@@ -30,10 +30,17 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import shop from '~/apollo/queries/shop'
 
 export default {
   components: {
     Logo
+  },
+  apollo: {
+    shop: {
+      prefetch: true,
+      query: shop
+    }
   }
 }
 </script>
