@@ -42,7 +42,24 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/apollo'
   ],
+  /**
+   * Apollo configuration
+   *
+   */
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://barrel-montalvo.myshopify.com/api/graphql',
+        httpLinkOptions: {
+          headers: {
+            'X-Shopify-Storefront-Access-Token': 'ce4f491c42326fc40ece238e50b96e17'
+          }
+        },
+      }
+    }
+  },
   /*
   ** Build configuration
   */
