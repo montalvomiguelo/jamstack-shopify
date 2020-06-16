@@ -3,11 +3,20 @@
     <div>
       <logo />
       <h1 class="title">
-        {{ shop.name }}
+        {{ catalog.title }}
       </h1>
       <h2 class="subtitle">
-        My excellent Nuxt.js project
+        {{ catalog.description }}
       </h2>
+      <ul class="products">
+        <li
+          v-for="product in products"
+          :key="product.id"
+          class="product"
+        >
+          {{ product.node.title }}
+        </li>
+      </ul>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -30,16 +39,21 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import shop from '~/apollo/queries/shop'
+import catalog from '~/apollo/queries/catalog'
 
 export default {
   components: {
     Logo
   },
   apollo: {
-    shop: {
+    catalog: {
       prefetch: true,
-      query: shop
+      query: catalog
+    }
+  },
+  computed: {
+    products () {
+      return this.catalog.products.edges
     }
   }
 }
