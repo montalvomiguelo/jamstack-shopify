@@ -11,10 +11,12 @@
       <ul class="products">
         <li
           v-for="product in products"
-          :key="product.id"
+          :key="product.node.id"
           class="product"
         >
-          {{ product.node.title }}
+          <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}">
+            {{ product.node.title }}
+          </nuxt-link>
         </li>
       </ul>
       <div class="links">
