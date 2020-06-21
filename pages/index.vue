@@ -42,6 +42,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import catalog from '~/apollo/queries/catalog'
+import shop from '~/apollo/queries/shop'
 
 export default {
   components: {
@@ -51,11 +52,30 @@ export default {
     catalog: {
       prefetch: true,
       query: catalog
+    },
+    shop: {
+      prefetch: true,
+      query: shop
     }
   },
   computed: {
     products () {
       return this.catalog.products.edges
+    }
+  },
+  head () {
+    const title = this.shop ? this.shop.name : ''
+    const content = this.shop ? this.shop.description : ''
+
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content
+        }
+      ]
     }
   }
 }

@@ -20,6 +20,21 @@ export default {
         return { handle: this.$route.params.handle }
       }
     }
+  },
+  head () {
+    const title = this.product ? this.product.title : ''
+    const content = this.product ? this.product.description : ''
+
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content
+        }
+      ]
+    }
   }
 }
 </script>
