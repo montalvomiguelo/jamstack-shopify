@@ -4,6 +4,20 @@ import CollectionsProductsFragment from '~/apollo/fragments/CollectionsProductsF
 
 export default gql`
   query($handle: String!) {
+    shop {
+      paymentSettings {
+        currencyCode
+        enabledPresentmentCurrencies
+      }
+      description
+      moneyFormat
+      name
+      primaryDomain {
+        host
+        sslEnabled
+        url
+      }
+    }
     collection: collectionByHandle(handle: $handle) {
       ...CollectionFragment
       ...CollectionsProductsFragment
