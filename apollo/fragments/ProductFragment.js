@@ -1,5 +1,8 @@
-query($handle: String!) {
-  product: productByHandle(handle: $handle) {
+import gql from 'graphql-tag'
+import VariantFragment from '~/apollo/fragments/VariantFragment'
+
+export default gql`
+  fragment ProductFragment on Product {
     id
     availableForSale
     createdAt
@@ -12,7 +15,7 @@ query($handle: String!) {
     vendor
     publishedAt
     onlineStoreUrl
-    options(first: 3) {
+    options {
       name
       values
     }
@@ -38,16 +41,10 @@ query($handle: String!) {
       edges {
         cursor
         node {
-          id
-          title
-          price
-          image {
-            id
-            originalSrc
-            altText
-          }
+          ...VariantFragment
         }
       }
     }
   }
-}
+  ${VariantFragment}
+`

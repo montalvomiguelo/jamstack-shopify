@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import productQuery from '~/apollo/queries/product'
+import productByHandle from '~/apollo/queries/productByHandle'
 
 export default {
   async asyncData (context) {
     const client = context.app.apolloProvider.defaultClient
 
     const { data } = await client.query({
-      query: productQuery,
+      query: productByHandle,
       variables: {
         handle: context.route.params.handle
       }

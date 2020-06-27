@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        {{ catalog.title }}
+        {{ collection.title }}
       </h1>
       <h2 class="subtitle">
-        {{ catalog.description }}
+        {{ collection.description }}
       </h2>
       <ul class="products">
         <li
@@ -41,7 +41,7 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import catalogQuery from '~/apollo/queries/catalog'
+import collectionByHandle from '~/apollo/queries/collectionByHandle'
 
 export default {
   components: {
@@ -51,26 +51,29 @@ export default {
     const client = context.app.apolloProvider.defaultClient
 
     const { data } = await client.query({
-      query: catalogQuery
+      query: collectionByHandle,
+      variables: {
+        handle: 'all'
+      }
     })
 
     return {
-      catalog: data.catalog
+      collection: data.collection
     }
   },
   computed: {
     products () {
-      return this.catalog.products.edges
+      return this.collection.products.edges
     }
   },
   head () {
     return {
-      title: this.catalog.title,
+      title: this.collection.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.catalog.description
+          content: this.collection.description
         }
       ]
     }
