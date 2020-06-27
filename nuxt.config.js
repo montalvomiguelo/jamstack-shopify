@@ -54,10 +54,10 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://barrel-montalvo.myshopify.com/api/graphql',
+        httpEndpoint: 'https://wb-barrel-store.myshopify.com/api/graphql',
         httpLinkOptions: {
           headers: {
-            'X-Shopify-Storefront-Access-Token': 'ce4f491c42326fc40ece238e50b96e17'
+            'X-Shopify-Storefront-Access-Token': '0b8dcd15ac5a03fadaf2ce5fe03e331d'
           }
         },
       }
