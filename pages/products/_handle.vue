@@ -13,17 +13,25 @@ import productByHandle from '~/apollo/queries/productByHandle'
 
 export default {
   async asyncData (context) {
-    const client = context.app.apolloProvider.defaultClient
+    try {
+      const client = context.app.apolloProvider.defaultClient
 
-    const { data } = await client.query({
-      query: productByHandle,
-      variables: {
-        handle: context.route.params.handle
+      const { data } = await client.query({
+        query: productByHandle,
+        variables: {
+          handle: context.route.params.handle
+        }
+      })
+
+      if (!data.product) {
+        context.error({ statusCode: 404, message: 'Product not found' })
       }
-    })
 
-    return {
-      product: data.product
+      return {
+        product: data.product
+      }
+    } catch (e) {
+      context.error({ statusCode: 404, message: 'Product not found' })
     }
   },
   head () {

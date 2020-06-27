@@ -48,17 +48,25 @@ export default {
     Logo
   },
   async asyncData (context) {
-    const client = context.app.apolloProvider.defaultClient
+    try {
+      const client = context.app.apolloProvider.defaultClient
 
-    const { data } = await client.query({
-      query: collectionByHandle,
-      variables: {
-        handle: 'all'
+      const { data } = await client.query({
+        query: collectionByHandle,
+        variables: {
+          handle: 'all'
+        }
+      })
+
+      if (!data.collection) {
+        context.error({ statusCode: 404, message: 'Collection not found' })
       }
-    })
 
-    return {
-      collection: data.collection
+      return {
+        collection: data.collection
+      }
+    } catch (e) {
+      context.error({ statusCode: 404, message: 'Collection not found' })
     }
   },
   computed: {
