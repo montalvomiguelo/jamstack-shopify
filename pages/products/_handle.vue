@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="container">
+  <div class="container">
     <div>
       <h1 class="subtitle">
         {{ product.title }}
@@ -9,29 +9,31 @@
 </template>
 
 <script>
-import product from '~/apollo/queries/product'
+import productQuery from '~/apollo/queries/product'
 
 export default {
-  apollo: {
-    product: {
-      prefetch: ({ route }) => ({ handle: route.params.handle }),
-      query: product,
-      variables () {
-        return { handle: this.$route.params.handle }
+  async asyncData (context) {
+    const client = context.app.apolloProvider.defaultClient
+
+    const { data } = await client.query({
+      query: productQuery,
+      variables: {
+        handle: context.route.params.handle
       }
+    })
+
+    return {
+      product: data.product
     }
   },
   head () {
-    const title = this.product ? this.product.title : ''
-    const content = this.product ? this.product.description : ''
-
     return {
-      title,
+      title: this.product.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content
+          content: this.product.description
         }
       ]
     }

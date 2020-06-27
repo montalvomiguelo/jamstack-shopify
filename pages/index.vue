@@ -41,21 +41,21 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import catalog from '~/apollo/queries/catalog'
-import shop from '~/apollo/queries/shop'
+import catalogQuery from '~/apollo/queries/catalog'
 
 export default {
   components: {
     Logo
   },
-  apollo: {
-    catalog: {
-      prefetch: true,
-      query: catalog
-    },
-    shop: {
-      prefetch: true,
-      query: shop
+  async asyncData (context) {
+    const client = context.app.apolloProvider.defaultClient
+
+    const { data } = await client.query({
+      query: catalogQuery
+    })
+
+    return {
+      catalog: data.catalog
     }
   },
   computed: {
@@ -64,16 +64,13 @@ export default {
     }
   },
   head () {
-    const title = this.shop ? this.shop.name : ''
-    const content = this.shop ? this.shop.description : ''
-
     return {
-      title,
+      title: this.catalog.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content
+          content: this.catalog.description
         }
       ]
     }
