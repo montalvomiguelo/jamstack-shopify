@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        {{ collection.title }}
+        {{ shop.name }}
       </h1>
       <h2 class="subtitle">
-        {{ collection.description }}
+        {{ shop.description }}
       </h2>
       <ul class="products">
         <li
@@ -41,7 +41,7 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import collectionByHandle from '~/apollo/queries/collectionByHandle'
+import shopAndCollectionByHandle from '~/apollo/queries/shopAndCollectionByHandle'
 
 export default {
   components: {
@@ -52,9 +52,9 @@ export default {
       const client = context.app.apolloProvider.defaultClient
 
       const { data } = await client.query({
-        query: collectionByHandle,
+        query: shopAndCollectionByHandle,
         variables: {
-          handle: 'all'
+          handle: 'frontpage'
         }
       })
 
@@ -63,7 +63,8 @@ export default {
       }
 
       return {
-        collection: data.collection
+        collection: data.collection,
+        shop: data.shop
       }
     } catch (e) {
       context.error({ statusCode: 404, message: 'Collection not found' })
@@ -76,12 +77,12 @@ export default {
   },
   head () {
     return {
-      title: this.collection.title,
+      title: this.shop.name,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.collection.description
+          content: this.shop.description
         }
       ]
     }
