@@ -1,22 +1,24 @@
 <template>
-  <div>
+  <div id="app" class="container">
+    <site-header />
     <nuxt />
+    <site-footer />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import SiteHeader from '~/components/SiteHeader.vue'
+import SiteFooter from '~/components/SiteFooter.vue'
 
+export default {
+  components: {
+    SiteHeader,
+    SiteFooter
+  }
+}
+</script>
+
+<style>
 *,
 *:before,
 *:after {
@@ -24,32 +26,58 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
   text-decoration: none;
-  padding: 10px 30px;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+a:hover {
+  text-decoration: underline;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+h1,
+.h1 {
+  font-size: 2.369em;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+h2,
+.h2 {
+  font-size: 1.777em;
+}
+
+h3,
+.h3 {
+  font-size: 1.333em;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-size: 0.75em;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  padding-left: 1.618em;
+  padding-right: 1.618em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
 }
 </style>
