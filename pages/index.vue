@@ -3,49 +3,38 @@
 </template>
 
 <script>
-import shopAndCollectionByHandle from '~/apollo/queries/shopAndCollectionByHandle'
+import { mapState } from 'vuex'
 import ProductList from '~/components/ProductList.vue'
 
 export default {
   components: {
     ProductList
   },
-  async asyncData (context) {
+  async fetch ({ store, error }) {
     try {
-      const client = context.app.apolloProvider.defaultClient
-
-      const { data } = await client.query({
-        query: shopAndCollectionByHandle,
-        variables: {
-          handle: 'frontpage'
-        }
-      })
-
-      if (!data.collection) {
-        context.error({ statusCode: 404, message: 'Collection not found' })
-      }
-
-      return {
-        collection: data.collection,
-        shop: data.shop
-      }
+      await store.dispatch('shop/fetchShopAndCollection', 'frontpage')
     } catch (e) {
-      context.error({ statusCode: 404, message: 'Collection not found' })
+      error({ statusCode: 404, message: 'Collection not found' })
     }
   },
   computed: {
+    ...mapState({
+      name: state => state.shop.name,
+      description: state => state.shop.description,
+      collection: state => state.shop.collection
+    }),
     products () {
       return this.collection.products.edges
     }
   },
   head () {
     return {
-      title: this.shop.name,
+      title: this.name,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.shop.description
+          content: this.description
         }
       ]
     }
