@@ -1,37 +1,30 @@
 <template>
-  <div>
-    <h1 class="subtitle">
-      {{ product.title }}
-    </h1>
+  <div class="product">
+    <product-featured />
+    <product-details />
   </div>
 </template>
 
 <script>
-import productByHandle from '~/apollo/queries/productByHandle'
+import { mapState } from 'vuex'
+import ProductFeatured from '~/components/ProductFeatured.vue'
+import ProductDetails from '~/components/ProductDetails.vue'
 
 export default {
-  async asyncData (context) {
+  components: {
+    ProductFeatured,
+    ProductDetails
+  },
+  async fetch ({ store, error, params }) {
     try {
-      const client = context.app.apolloProvider.defaultClient
-
-      const { data } = await client.query({
-        query: productByHandle,
-        variables: {
-          handle: context.route.params.handle
-        }
-      })
-
-      if (!data.product) {
-        context.error({ statusCode: 404, message: 'Product not found' })
-      }
-
-      return {
-        product: data.product
-      }
+      await store.dispatch('product/fetchProduct', params.handle)
     } catch (e) {
-      context.error({ statusCode: 404, message: 'Product not found' })
+      error({ statusCode: 404, message: 'Product not found' })
     }
   },
+  computed: mapState({
+    product: state => state.product.product
+  }),
   head () {
     return {
       title: this.product.title,

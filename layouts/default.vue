@@ -69,6 +69,10 @@ h6,
   font-size: 0.75em;
 }
 
+p {
+  margin-bottom: 1em;
+}
+
 #app {
   min-height: 100vh;
   display: flex;
