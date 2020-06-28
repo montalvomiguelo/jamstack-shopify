@@ -14,7 +14,7 @@
       <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}">
         {{ product.node.title }}
       </nuxt-link>
-      <span class="product-card__price">{{ price }}</span>
+      <span class="product-card__price h4">{{ price }}</span>
     </p>
   </div>
 </template>
