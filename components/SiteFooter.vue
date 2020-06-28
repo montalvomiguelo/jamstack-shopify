@@ -26,8 +26,8 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 1.618em;
-  padding-bottom: 1.618em;
+  padding-top: calc(1.618em * 2);
+  padding-bottom: calc(1.618em * 2);
 }
 
 .site-footer__link {

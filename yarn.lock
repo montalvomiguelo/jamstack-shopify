@@ -1288,6 +1288,10 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@shopify/theme-images@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-images/-/theme-images-4.0.0.tgz#906eb7ceb35ba41bc0def49a81f4ae502c7b7f38"
+
 "@types/accepts@*", "@types/accepts@^1.3.5":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@types/accepts/-/accepts-1.3.5.tgz#c34bec115cfc746e04fe5a059df4ce7e7b391575"

@@ -1,24 +1,14 @@
 <template>
-  <div>
-    <ul class="products">
-      <li
-        v-for="product in products"
-        :key="product.node.id"
-        class="product"
-      >
-        <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}">
-          {{ product.node.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+  <product-list :products="products" />
 </template>
 
 <script>
 import shopAndCollectionByHandle from '~/apollo/queries/shopAndCollectionByHandle'
+import ProductList from '~/components/ProductList.vue'
 
 export default {
   components: {
+    ProductList
   },
   async asyncData (context) {
     try {

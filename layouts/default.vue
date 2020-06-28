@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="container">
     <site-header />
-    <nuxt />
+    <main class="main">
+      <nuxt />
+    </main>
     <site-footer />
   </div>
 </template>
@@ -79,5 +81,9 @@ h6,
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
+}
+
+.main {
+  margin-bottom: calc(1.618em * 2);
 }
 </style>
