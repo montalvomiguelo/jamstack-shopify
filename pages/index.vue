@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import ProductList from '~/components/ProductList.vue'
 
 export default {
@@ -20,12 +20,11 @@ export default {
   computed: {
     ...mapState({
       name: state => state.shop.name,
-      description: state => state.shop.description,
-      collection: state => state.shop.collection
+      description: state => state.shop.description
     }),
-    products () {
-      return this.collection.products.edges
-    }
+    ...mapGetters('shop', [
+      'products'
+    ])
   },
   head () {
     return {

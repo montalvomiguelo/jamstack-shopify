@@ -3,7 +3,7 @@ import shopAndCollectionByHandle from '~/apollo/queries/shopAndCollectionByHandl
 export const state = () => ({
   name: '',
   description: '',
-  products: []
+  collection: []
 })
 
 export const mutations = {
@@ -28,15 +28,21 @@ export const actions = {
         handle
       }
     }).then(({ data }) => {
-      if (!data.shop || !data.collection) {
+      const { shop, collection } = data
+
+      if (!shop || !collection) {
         throw new Error('Collection not found')
       }
-
-      const { shop, collection } = data
 
       commit('SET_NAME', shop.name)
       commit('SET_DESCRIPTION', shop.description)
       commit('SET_COLLECTION', collection)
     })
+  }
+}
+
+export const getters = {
+  products: (state) => {
+    return state.collection.products.edges
   }
 }
