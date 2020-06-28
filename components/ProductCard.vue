@@ -13,15 +13,15 @@
     <p class="product-card__title">
       <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}">
         {{ product.node.title }}
-        <br>
-        <span class="h4">{{ product.node.price }}</span>
       </nuxt-link>
+      <span class="product-card__price">{{ price }}</span>
     </p>
   </div>
 </template>
 
 <script>
 import { getSizedImageUrl } from '@shopify/theme-images'
+import { formatMoney } from '@shopify/theme-currency'
 
 export default {
   props: {
@@ -34,6 +34,13 @@ export default {
     },
     featuredImageSrc () {
       return getSizedImageUrl(this.featuredImage.src, '600x')
+    },
+    selectedVariant () {
+      return this.product.node.variants.edges[0].node
+    },
+    price () {
+      const cents = this.selectedVariant.priceV2.amount * 100
+      return formatMoney(cents)
     }
   }
 }
@@ -44,6 +51,11 @@ export default {
   position: relative;
   display: block;
   background-color: #F2F2F2
+}
+
+.product-card__price {
+  display: block;
+  margin-top: 1em;
 }
 
 .product-card__image-link::before {

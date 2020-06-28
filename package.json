@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.1",
+    "@shopify/theme-currency": "^4.0.0",
     "@shopify/theme-images": "^4.0.0",
     "core-js": "^2.6.5",
     "nuxt": "^2.0.0",

@@ -43,8 +43,15 @@ export default {
 }
 
 @media (min-width: 768px) {
+  .product-list {
+    margin-left: calc(1.618em / -2);
+    margin-right: calc(1.618em / -2);
+  }
+
   .product-list__item {
     width: 33.33%;
+    padding-left: calc(1.618em / 2);
+    padding-right: calc(1.618em / 2);
   }
 }
 </style>
