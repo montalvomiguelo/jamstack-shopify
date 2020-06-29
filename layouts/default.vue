@@ -73,6 +73,34 @@ p {
   margin-bottom: 1em;
 }
 
+button,
+.button {
+  height: calc(1.618 * 2em);
+  padding-left: 1.618em;
+  padding-right: 1.618em;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+select {
+  height: calc(1.618 * 2em);
+  padding-left: 1.618em;
+  padding-right: 1.618em;
+  border-radius: 0;
+  border-color: #000;
+  font: inherit;
+  appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28138, 138, 138%29'></polygon></svg>") no-repeat right 10px center transparent;
+  background-size: 15px;
+}
+
+label {
+  font: inherit;
+}
+
 #app {
   min-height: 100vh;
   display: flex;

@@ -2,7 +2,7 @@
   <div class="product-featured">
     <img
       :src="featuredImageSrc"
-      :alt="featuredImage.altText"
+      :alt="featuredImageAltText"
       loading="lazy"
       class="product-featured__image"
     >
@@ -16,8 +16,12 @@ export default {
   computed: {
     ...mapGetters('product', [
       'featuredImageSrc',
-      'featuredImage'
-    ])
+      'featuredImage',
+      'title'
+    ]),
+    featuredImageAltText () {
+      return this.featuredImage.altText || this.title
+    }
   }
 }
 </script>
