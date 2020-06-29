@@ -70,5 +70,17 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    // TODO: generate routes dynamically
+    routes: [
+      '/products/barrel-pen',
+      '/products/barrel-mug',
+      '/products/barrel-notebook',
+      '/products/barrel-tote-bag',
+      '/products/barrel-dark-t-shirt',
+      '/products/barrel-light-t-shirt',
+      '/products/barrel-sweatshirt'
+    ]
   }
 }
