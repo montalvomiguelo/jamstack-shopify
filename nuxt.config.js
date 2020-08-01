@@ -43,7 +43,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    'cookie-universal-nuxt'
   ],
   /**
    * Apollo configuration
