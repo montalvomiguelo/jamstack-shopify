@@ -39,7 +39,7 @@ export default {
 }
 
 .product-details__price {
-  margin-bottom: 0;
+  margin-bottom: calc(1.618em / 2);
 }
 
 .product-details__description {

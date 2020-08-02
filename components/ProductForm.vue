@@ -1,5 +1,5 @@
 <template>
-  <form class="product-form">
+  <form class="product-form" @submit.prevent="onSubmit">
     <div
       v-if="!hasOnlyDefaultVariant"
       class="product-form__field"
@@ -41,6 +41,14 @@ export default {
       set (value) {
         this.$store.commit('updateSelectedVariantId', value)
       }
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$store.dispatch('checkout/addItem', {
+        id: this.selectedVariantId,
+        quantity: 1
+      })
     }
   }
 }
