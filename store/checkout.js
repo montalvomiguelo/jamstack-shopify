@@ -1,4 +1,5 @@
 import checkoutCreate from '~/apollo/mutations/checkoutCreate'
+import checkoutLineItemsAdd from '~/apollo/mutations/checkoutLineItemsAdd'
 import checkoutNode from '~/apollo/queries/checkoutNode'
 
 export const state = () => ({
@@ -12,13 +13,26 @@ export const mutations = {
 }
 
 export const actions = {
-  addItem ({ dispatch }, payload) {
-    dispatch('createCheckout', payload)
-  },
-  createCheckout ({ commit, dispatch }, { id: variantId, quantity }) {
-    const client = this.app.apolloProvider.defaultClient
+  addItem ({ dispatch, getters }, payload) {
+    if (!getters.checkoutId) {
+      return dispatch('checkoutCreate', payload)
+    }
 
-    return client.mutate({
+    dispatch('checkoutItemAdd', payload)
+  },
+  checkoutItemAdd ({ commit, getters }, { id: variantId, quantity }) {
+    return this.app.apolloProvider.defaultClient.mutate({
+      mutation: checkoutLineItemsAdd,
+      variables: {
+        lineItems: [{ variantId, quantity }],
+        checkoutId: getters.checkoutId
+      }
+    }).then(({ data: { checkoutLineItemsAdd: { checkout } } }) => {
+      commit('SET_CHECKOUT', checkout)
+    })
+  },
+  checkoutCreate ({ commit, dispatch }, { id: variantId, quantity }) {
+    return this.app.apolloProvider.defaultClient.mutate({
       mutation: checkoutCreate,
       variables: {
         input: {
@@ -50,5 +64,8 @@ export const getters = {
     }
 
     return state.checkout.lineItems.edges
+  },
+  checkoutId: (state) => {
+    return state.checkout.id
   }
 }
