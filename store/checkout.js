@@ -77,5 +77,11 @@ export const getters = {
       quantity += item.node.quantity
       return quantity
     }, 0)
+  },
+  subtotalPrice: (state) => {
+    return state.checkout.subtotalPrice
+  },
+  webUrl: (state) => {
+    return state.checkout.webUrl
   }
 }

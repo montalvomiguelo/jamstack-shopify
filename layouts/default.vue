@@ -82,7 +82,13 @@ button,
   border: none;
   color: #fff;
   font: inherit;
+  text-align: center;
+  line-height: calc(1.618 * 2em);
   cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: none;
 }
 
 select {

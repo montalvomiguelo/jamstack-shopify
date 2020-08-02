@@ -82,6 +82,7 @@ export default {
       '/products/barrel-dark-t-shirt',
       '/products/barrel-light-t-shirt',
       '/products/barrel-sweatshirt'
-    ]
+    ],
+    exclude: [/cart/]
   }
 }
