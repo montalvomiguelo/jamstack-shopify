@@ -67,5 +67,15 @@ export const getters = {
   },
   checkoutId: (state) => {
     return state.checkout.id
+  },
+  lineItemsCount: (state, getters) => {
+    if (!getters.lineItems) {
+      return
+    }
+
+    return getters.lineItems.reduce((quantity, item) => {
+      quantity += item.node.quantity
+      return quantity
+    }, 0)
   }
 }

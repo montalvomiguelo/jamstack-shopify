@@ -6,10 +6,10 @@
     <nuxt-link :to="{ name: 'cart' }" class="site-nav__link h3">
       Cart
       <small
-        v-if="lineItems"
+        v-if="lineItemsCount"
         class="site-nav__cart-count"
       >
-        {{ lineItems.length }}
+        {{ lineItemsCount }}
       </small>
     </nuxt-link>
   </nav>
@@ -21,7 +21,7 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters('checkout', [
-      'lineItems'
+      'lineItemsCount'
     ])
   },
   mounted () {
@@ -50,7 +50,7 @@ export default {
 
 .site-nav__cart-count {
   position: absolute;
-  right: -.8rem;
+  right: -1rem;
   top: -.4rem;;
   font-size: 1rem;
 }
