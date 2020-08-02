@@ -1,4 +1,5 @@
 import checkoutCreate from '~/apollo/mutations/checkoutCreate'
+import checkoutNode from '~/apollo/queries/checkoutNode'
 
 export const state = () => ({
   checkout: {}
@@ -31,6 +32,14 @@ export const actions = {
   },
   persistCheckoutId (context, id) {
     this.$cookies.set('checkoutId', id)
+  },
+  fetchCheckout ({ commit }, id) {
+    return this.app.apolloProvider.defaultClient.mutate({
+      mutation: checkoutNode,
+      variables: { id }
+    }).then(({ data: { node } }) => {
+      commit('SET_CHECKOUT', node)
+    })
   }
 }
 

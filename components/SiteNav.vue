@@ -25,8 +25,11 @@ export default {
     ])
   },
   mounted () {
-    // get checkout id
-    // fetch checkout
+    const checkoutId = this.$cookies.get('checkoutId')
+
+    if (checkoutId) {
+      this.$store.dispatch('checkout/fetchCheckout', checkoutId)
+    }
   }
 }
 </script>
