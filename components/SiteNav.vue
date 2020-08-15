@@ -23,13 +23,6 @@ export default {
     ...mapGetters('checkout', [
       'lineItemsCount'
     ])
-  },
-  mounted () {
-    const checkoutId = this.$cookies.get('checkoutId')
-
-    if (checkoutId) {
-      this.$store.dispatch('checkout/fetchCheckout', checkoutId)
-    }
   }
 }
 </script>
