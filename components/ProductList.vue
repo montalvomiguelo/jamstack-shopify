@@ -30,28 +30,28 @@ export default {
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  margin-left: calc(1.618em / -4);
-  margin-right: calc(1.618em / -4);
-  margin-bottom: -1.618em;
+  margin-left: calc(var(--gutter) / -4);
+  margin-right: calc(var(--gutter) / -4);
+  margin-bottom: -var(--gutter);
 }
 
 .product-list__item {
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
   width: 50%;
-  padding-left: calc(1.618em / 4);
-  padding-right: calc(1.618em / 4);
+  padding-left: calc(var(--gutter) / 4);
+  padding-right: calc(var(--gutter) / 4);
 }
 
 @media (min-width: 768px) {
   .product-list {
-    margin-left: calc(1.618em / -2);
-    margin-right: calc(1.618em / -2);
+    margin-left: calc(var(--gutter) / -2);
+    margin-right: calc(var(--gutter) / -2);
   }
 
   .product-list__item {
     width: 33.33%;
-    padding-left: calc(1.618em / 2);
-    padding-right: calc(1.618em / 2);
+    padding-left: calc(var(--gutter) / 2);
+    padding-right: calc(var(--gutter) / 2);
   }
 }
 </style>

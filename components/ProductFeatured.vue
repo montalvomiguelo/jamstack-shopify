@@ -49,7 +49,7 @@ export default {
 
 @media (min-width: 768px) {
   .product-featured {
-    max-width: calc(100% / 1.618);
+    max-width: calc(100% / var(--phi));
     margin-left: auto;
     margin-right: auto;
   }

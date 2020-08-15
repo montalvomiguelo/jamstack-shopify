@@ -65,7 +65,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: calc(1.618em / 2);
+  margin-bottom: calc(var(--gutter) / 2);
 }
 
 .product-form__submit {
@@ -79,10 +79,10 @@ export default {
 
 @media (min-width: 576px) {
   .product-form {
-    max-width: calc(100% / 1.618);
+    max-width: calc(100% / var(--phi));
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1.618em;
+    margin-top: var(--gutter);
   }
 }
 </style>

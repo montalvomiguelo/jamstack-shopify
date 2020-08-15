@@ -26,19 +26,19 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: calc(1.618em * 2);
-  padding-bottom: calc(1.618em * 2);
+  padding-top: calc(var(--gutter) * 2);
+  padding-bottom: calc(var(--gutter) * 2);
 }
 
 .site-footer__link {
   display: block;
-  margin-left: 1.618em;
-  margin-right: 1.618em;
+  margin-left: var(--gutter);
+  margin-right: var(--gutter);
 }
 
 .site-footer__title {
   width: 100%;
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
   text-align: center;
   text-transform: uppercase;
 }

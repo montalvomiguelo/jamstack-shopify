@@ -36,23 +36,23 @@
 <style>
 .cart__title {
   text-align: center;
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
 }
 
 .cart__items {
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
 }
 
 .cart__item__subtotal {
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
   display: flex;
   justify-content: space-between;
-  font-size: 1.618em;
+  font-size: var(--gutter);
 }
 
 .cart__item {
-  padding-bottom: 1.618em;
-  padding-top: 1.618em;
+  padding-bottom: var(--gutter);
+  padding-top: var(--gutter);
   display: table;
   width: 100%;
   border-top: 1px solid;
@@ -85,7 +85,7 @@
 @media (min-width: 576px) {
   .cart__button,
   .cart__content {
-    max-width: calc(100% / 1.618);
+    max-width: calc(100% / var(--phi));
     margin-left: auto;
     margin-right: auto;
   }

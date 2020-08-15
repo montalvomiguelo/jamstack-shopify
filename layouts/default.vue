@@ -75,15 +75,15 @@ p {
 
 button,
 .button {
-  height: calc(1.618 * 2em);
-  padding-left: 1.618em;
-  padding-right: 1.618em;
+  height: calc(var(--phi) * 2em);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   background-color: #000;
   border: none;
   color: #fff;
   font: inherit;
   text-align: center;
-  line-height: calc(1.618 * 2em);
+  line-height: calc(var(--phi) * 2em);
   cursor: pointer;
 }
 
@@ -92,14 +92,14 @@ button,
 }
 
 select {
-  height: calc(1.618 * 2em);
-  padding-left: 1.618em;
-  padding-right: 1.618em;
+  height: calc(var(--phi) * 2em);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   border-radius: 0;
   border-color: #000;
   font: inherit;
   appearance: none;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28138, 138, 138%29'></polygon></svg>") no-repeat right 10px center transparent;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3E%3Cpath d='M0 0s3.4 4.4 3.5 4.4C3.7 4.4 7.1 0 7.1 0H0z'/%3E%3C/svg%3E") no-repeat right 16px center transparent;
   background-size: 15px;
 }
 
@@ -114,14 +114,14 @@ label {
 }
 
 .container {
-  padding-left: 1.618em;
-  padding-right: 1.618em;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
 }
 
 .main {
-  margin-bottom: calc(1.618em * 2);
+  margin-bottom: calc(var(--gutter) * 2);
 }
 </style>

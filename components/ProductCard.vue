@@ -74,7 +74,7 @@ export default {
 }
 
 .product-card__title {
-  margin-top: calc(1.618em / 2);
+  margin-top: calc(var(--gutter) / 2);
   text-align: center;
 }
 </style>

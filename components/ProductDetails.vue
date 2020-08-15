@@ -30,7 +30,7 @@ export default {
 
 <style>
 .product-details {
-  margin-top: 1.618em;
+  margin-top: var(--gutter);
   text-align: center;
 }
 
@@ -39,18 +39,18 @@ export default {
 }
 
 .product-details__price {
-  margin-bottom: 1.618em;
+  margin-bottom: var(--gutter);
 }
 
 .product-details__description {
-  margin-top: calc(1.618em * 2);
-  line-height: 1.618;
+  margin-top: calc(var(--gutter) * 2);
+  line-height: var(--phi);
   text-align: left;
 }
 
 @media (min-width: 576px) {
   .product-details__description {
-    max-width: calc(100% / 1.618);
+    max-width: calc(100% / var(--phi));
     margin-left: auto;
     margin-right: auto;
   }
@@ -58,7 +58,7 @@ export default {
 
 @media (min-width: 768px) {
   .product-details {
-    max-width: calc(100% / 1.618);
+    max-width: calc(100% / var(--phi));
     margin-left: auto;
     margin-right: auto;
   }

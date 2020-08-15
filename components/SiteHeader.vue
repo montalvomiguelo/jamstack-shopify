@@ -26,8 +26,8 @@ export default {
 
 <style>
 .site-header {
-  padding-top: 1.618em;
-  padding-bottom: 1.618em;
+  padding-top: var(--gutter);
+  padding-bottom: var(--gutter);
 }
 
 .site-header__logo {
@@ -40,8 +40,8 @@ export default {
 
 @media (min-width: 768px) {
   .site-header {
-    padding-top: calc(1.618 * 2em);
-    padding-bottom: calc(1.618 * 2em);
+    padding-top: calc(var(--phi) * 2em);
+    padding-bottom: calc(var(--phi) * 2em);
   }
 
   .site-header__logo {

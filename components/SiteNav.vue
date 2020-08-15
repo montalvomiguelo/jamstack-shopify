@@ -38,13 +38,13 @@ export default {
 .site-nav {
   display: flex;
   justify-content: center;
-  margin-top: calc(1.618 * 2em);
+  margin-top: calc(var(--phi) * 2em);
 }
 
 .site-nav__link {
   position: relative;
-  margin-left: 1.618em;
-  margin-right: 1.618em;
+  margin-left: var(--gutter);
+  margin-right: var(--gutter);
   display: block;
 }
 
