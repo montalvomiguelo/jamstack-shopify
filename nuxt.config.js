@@ -83,18 +83,5 @@ export default {
         browsers: 'last 3 chrome versions, last 3 chromeandroid versions, last 3 firefox versions, last 3 opera versions, last 2 edge versions, safari >= 10, ios >= 10'
       }
     }
-  },
-  generate: {
-    // TODO: generate routes dynamically
-    routes: [
-      '/products/barrel-pen',
-      '/products/barrel-mug',
-      '/products/barrel-notebook',
-      '/products/barrel-tote-bag',
-      '/products/barrel-dark-t-shirt',
-      '/products/barrel-light-t-shirt',
-      '/products/barrel-sweatshirt'
-    ],
-    exclude: [/cart/]
   }
 }
