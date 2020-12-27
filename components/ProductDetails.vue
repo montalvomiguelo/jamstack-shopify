@@ -7,6 +7,7 @@
       {{ selectedVariantPrice }}
     </p>
     <product-form />
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="product-details__description" v-html="descriptionHtml" />
   </div>
 </template>
