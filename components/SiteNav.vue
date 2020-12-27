@@ -16,12 +16,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters('checkout', [
       'lineItemsCount'
+    ])
+  },
+  mounted () {
+    const checkoutId = this.$cookies.get('checkoutId')
+
+    if (checkoutId) {
+      this.fetchCheckout(checkoutId)
+    }
+  },
+  methods: {
+    ...mapActions('checkout', [
+      'fetchCheckout'
     ])
   }
 }
