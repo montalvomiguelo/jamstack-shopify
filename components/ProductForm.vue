@@ -40,7 +40,7 @@ export default {
         return this.$store.state.product.selectedVariantId
       },
       set (value) {
-        this.$store.commit('updateSelectedVariantId', value)
+        this.$store.dispatch('product/updateSelectedVariantId', value)
       }
     }
   },
