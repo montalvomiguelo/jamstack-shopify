@@ -1,10 +1,10 @@
 <template>
-  <form class="product-form" @submit.prevent="onSubmit">
+  <form class="" @submit.prevent="onSubmit">
     <div
       v-if="!hasOnlyDefaultVariant"
-      class="product-form__field"
+      class=""
     >
-      <label class="product-form__label" for="id">Style</label>
+      <label class="" for="id">Style</label>
       <select
         id="id"
         v-model="selectedVariantId"
@@ -19,7 +19,7 @@
         </option>
       </select>
     </div>
-    <button type="submit" class="product-form__submit">
+    <button type="submit" class="">
       Add to cart
     </button>
   </form>
@@ -53,36 +53,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.product-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.product-form__field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: calc(var(--gutter) / 2);
-}
-
-.product-form__submit {
-  width: 100%;
-}
-
-.product-form__label {
-  text-align: left;
-  margin-bottom: 0.5em;
-}
-
-@media (min-width: 576px) {
-  .product-form {
-    max-width: calc(100% / var(--phi));
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: var(--gutter);
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="product">
+  <div class="">
     <product-featured />
     <product-details />
   </div>
@@ -39,6 +39,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
