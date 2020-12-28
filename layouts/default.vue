@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container mx-auto max-w-5xl px-5 font-sans antialiased">
     <site-header />
-    <main class="">
+    <main class="mb-16">
       <nuxt />
     </main>
     <site-footer />

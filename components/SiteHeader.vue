@@ -1,6 +1,6 @@
 <template>
-  <header class="">
-    <nuxt-link :to="{ name: 'index' }" class="">
+  <header class="py-6 md:py-10">
+    <nuxt-link :to="{ name: 'index' }" class="block w-60 md:w-150 mx-auto">
       <img
         src="~/assets/barrel.png"
         :alt="name"

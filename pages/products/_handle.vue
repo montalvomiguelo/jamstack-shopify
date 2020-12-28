@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="max-w-lg mx-auto">
     <product-featured />
     <product-details />
   </div>

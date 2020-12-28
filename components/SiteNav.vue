@@ -1,13 +1,13 @@
 <template>
-  <nav class="">
-    <nuxt-link :to="{ name: 'index' }" class="">
+  <nav class="mt-12 flex justify-center text-xl">
+    <nuxt-link :to="{ name: 'index' }" class="mx-8">
       Shop
     </nuxt-link>
-    <nuxt-link :to="{ name: 'cart' }" class="">
+    <nuxt-link :to="{ name: 'cart' }" class="relative mx-8">
       Cart
       <small
         v-if="lineItemsCount"
-        class=""
+        class="absolute -top-1 -right-4 text-base"
       >
         {{ lineItemsCount }}
       </small>

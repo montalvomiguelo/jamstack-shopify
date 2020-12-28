@@ -2,11 +2,12 @@
   <form class="" @submit.prevent="onSubmit">
     <div
       v-if="!hasOnlyDefaultVariant"
-      class=""
+      class="mb-4"
     >
-      <label class="" for="id">Style</label>
+      <label class="block mb-2 text-left" for="id">Style</label>
       <select
         id="id"
+        class="block w-full h-10 border-solid border border-black"
         v-model="selectedVariantId"
         name="id"
       >
@@ -19,7 +20,7 @@
         </option>
       </select>
     </div>
-    <button type="submit" class="">
+    <button type="submit" class="w-full px-8 py-4 bg-black text-white">
       Add to cart
     </button>
   </form>

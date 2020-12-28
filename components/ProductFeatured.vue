@@ -1,10 +1,10 @@
 <template>
-  <div class="">
+  <div class="relative pb-full bg-gray-100 overflow-hidden">
     <img
       :src="featuredImageSrc"
       :alt="featuredImageAltText"
       loading="lazy"
-      class=""
+      class="absolute w-full h-full object-contain"
     >
   </div>
 </template>

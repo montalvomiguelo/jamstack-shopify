@@ -1,20 +1,18 @@
 <template>
-  <div
-    class=""
-  >
-    <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}" class="">
+  <div>
+    <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}" class="relative block pb-full overflow-hidden">
       <img
         :src="featuredImageSrc"
         :alt="product.node.title"
         loading="lazy"
-        class=""
+        class="absolute w-full h-full bg-gray-100 object-contain"
       >
     </nuxt-link>
-    <p class="">
+    <p class="mt-3 mb-4 text-center">
       <nuxt-link :to="{ name: 'products-handle', params: { handle: product.node.handle }}">
         {{ product.node.title }}
       </nuxt-link>
-      <span class="">{{ price }}</span>
+      <span class="block mt-2">{{ price }}</span>
     </p>
   </div>
 </template>

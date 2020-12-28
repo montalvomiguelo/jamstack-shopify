@@ -1,14 +1,14 @@
 <template>
-  <div class="">
-    <h1 class="">
+  <div class="mt-6 text-center">
+    <h1 class="mb-4 text-4xl">
       {{ title }}
     </h1>
-    <p class="">
+    <p class="mb-6">
       {{ selectedVariantPrice }}
     </p>
     <product-form />
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="" v-html="descriptionHtml" />
+    <div class="leading-6 mt-10" v-html="descriptionHtml" />
   </div>
 </template>
 
