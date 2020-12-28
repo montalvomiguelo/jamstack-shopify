@@ -21,25 +21,19 @@ export const actions = {
     dispatch('checkoutItemAdd', payload)
   },
   checkoutItemAdd ({ commit, getters }, { id: variantId, quantity }) {
-    return this.app.apolloProvider.defaultClient.mutate({
-      mutation: checkoutLineItemsAdd,
-      variables: {
-        lineItems: [{ variantId, quantity }],
-        checkoutId: getters.checkoutId
-      }
-    }).then(({ data: { checkoutLineItemsAdd: { checkout } } }) => {
+    return this.$graphql.request(checkoutLineItemsAdd, {
+      lineItems: [{ variantId, quantity }],
+      checkoutId: getters.checkoutId
+    }).then(({ checkoutLineItemsAdd: { checkout } }) => {
       commit('SET_CHECKOUT', checkout)
     })
   },
   checkoutCreate ({ commit, dispatch }, { id: variantId, quantity }) {
-    return this.app.apolloProvider.defaultClient.mutate({
-      mutation: checkoutCreate,
-      variables: {
-        input: {
-          lineItems: [{ variantId, quantity }]
-        }
+    return this.$graphql.request(checkoutCreate, {
+      input: {
+        lineItems: [{ variantId, quantity }]
       }
-    }).then(({ data: { checkoutCreate: { checkout } } }) => {
+    }).then(({ checkoutCreate: { checkout } }) => {
       dispatch('persistCheckoutId', checkout.id)
       commit('SET_CHECKOUT', checkout)
     })
@@ -48,12 +42,10 @@ export const actions = {
     this.$cookies.set('checkoutId', id)
   },
   fetchCheckout ({ commit }, id) {
-    return this.app.apolloProvider.defaultClient.mutate({
-      mutation: checkoutNode,
-      variables: { id }
-    }).then(({ data: { node } }) => {
-      commit('SET_CHECKOUT', node)
-    })
+    return this.$graphql.request(checkoutNode, { id })
+      .then(({ node }) => {
+        commit('SET_CHECKOUT', node)
+      })
   }
 }
 

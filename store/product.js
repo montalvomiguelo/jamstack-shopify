@@ -18,23 +18,17 @@ export const mutations = {
 
 export const actions = {
   fetchProduct ({ commit, getters }, handle) {
-    const client = this.app.apolloProvider.defaultClient
+    return this.$graphql.request(productByHandle, { handle })
+      .then((data) => {
+        const { product } = data
 
-    return client.query({
-      query: productByHandle,
-      variables: {
-        handle
-      }
-    }).then(({ data }) => {
-      const { product } = data
+        if (!product) {
+          throw new Error('Product not found')
+        }
 
-      if (!product) {
-        throw new Error('Product not found')
-      }
-
-      commit('SET_PRODUCT', product)
-      commit('SET_SELECTED_VARIANT_ID', getters.firstVariant.id)
-    })
+        commit('SET_PRODUCT', product)
+        commit('SET_SELECTED_VARIANT_ID', getters.firstVariant.id)
+      })
   },
   updateSelectedVariantId ({ commit }, variantId) {
     commit('SET_SELECTED_VARIANT_ID', variantId)

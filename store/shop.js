@@ -20,24 +20,18 @@ export const mutations = {
 
 export const actions = {
   fetchShopAndCollection ({ commit }, handle) {
-    const client = this.app.apolloProvider.defaultClient
+    return this.$graphql.request(shopAndCollectionByHandle, { handle })
+      .then((data) => {
+        const { shop, collection } = data
 
-    return client.query({
-      query: shopAndCollectionByHandle,
-      variables: {
-        handle
-      }
-    }).then(({ data }) => {
-      const { shop, collection } = data
+        if (!shop || !collection) {
+          throw new Error('Collection not found')
+        }
 
-      if (!shop || !collection) {
-        throw new Error('Collection not found')
-      }
-
-      commit('SET_NAME', shop.name)
-      commit('SET_DESCRIPTION', shop.description)
-      commit('SET_COLLECTION', collection)
-    })
+        commit('SET_NAME', shop.name)
+        commit('SET_DESCRIPTION', shop.description)
+        commit('SET_COLLECTION', collection)
+      })
   }
 }
 
