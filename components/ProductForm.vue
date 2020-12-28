@@ -7,8 +7,8 @@
       <label class="block mb-2 text-left" for="id">Style</label>
       <select
         id="id"
-        class="block w-full h-10 border-solid border border-black"
         v-model="selectedVariantId"
+        class="block w-full h-10 border-solid border border-black"
         name="id"
       >
         <option
