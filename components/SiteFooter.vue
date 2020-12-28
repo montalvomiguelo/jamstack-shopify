@@ -1,45 +1,21 @@
 <template>
-  <footer class="site-footer">
-    <p class="site-footer__title h4">
+  <footer class="py-14 flex flex-wrap justify-center text-sm">
+    <p class="w-full mb-4 text-center">
       Barrel
     </p>
     <a
       href="https://nuxtjs.org/"
       target="_blank"
-      class="site-footer__link h5"
+      class="mx-4"
     >
       Documentation
     </a>
     <a
       href="https://github.com/nuxt/nuxt.js"
       target="_blank"
-      class="site-footer__link h5"
+      class="mx-4"
     >
       GitHub
     </a>
   </footer>
 </template>
-
-<style>
-.site-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: auto;
-  padding-top: calc(var(--gutter) * 2);
-  padding-bottom: calc(var(--gutter) * 2);
-}
-
-.site-footer__link {
-  display: block;
-  margin-left: var(--gutter);
-  margin-right: var(--gutter);
-}
-
-.site-footer__title {
-  width: 100%;
-  margin-bottom: var(--gutter);
-  text-align: center;
-  text-transform: uppercase;
-}
-</style>

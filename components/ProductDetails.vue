@@ -1,14 +1,14 @@
 <template>
-  <div class="product-details">
-    <h1 class="h1 product-details__title">
+  <div class="mt-6 text-center">
+    <h1 class="mb-4 text-4xl">
       {{ title }}
     </h1>
-    <p class="product-details__price">
+    <p class="mb-6">
       {{ selectedVariantPrice }}
     </p>
     <product-form />
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="product-details__description" v-html="descriptionHtml" />
+    <div class="leading-6 mt-10" v-html="descriptionHtml" />
   </div>
 </template>
 
@@ -28,40 +28,3 @@ export default {
   ])
 }
 </script>
-
-<style>
-.product-details {
-  margin-top: var(--gutter);
-  text-align: center;
-}
-
-.product-details__title {
-  margin-bottom: 1rem;
-}
-
-.product-details__price {
-  margin-bottom: var(--gutter);
-}
-
-.product-details__description {
-  margin-top: calc(var(--gutter) * 2);
-  line-height: var(--phi);
-  text-align: left;
-}
-
-@media (min-width: 576px) {
-  .product-details__description {
-    max-width: calc(100% / var(--phi));
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .product-details {
-    max-width: calc(100% / var(--phi));
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-</style>
