@@ -12,11 +12,11 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@shopify/theme-currency": "^4.1.0",
     "@shopify/theme-images": "^4.1.0",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
+    "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.6",
     "reset-css": "^5.0.1",
     "stylelint": "^13.8.0"
@@ -27,6 +27,8 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
-    "eslint-plugin-nuxt": "^1.0.0"
+    "eslint-plugin-nuxt": "^1.0.0",
+    "graphql": "^15.4.0",
+    "nuxt-graphql-request": "^3.2.0"
   }
 }
