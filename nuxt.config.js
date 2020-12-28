@@ -23,8 +23,6 @@ export default {
   ** Global CSS
   */
   css: [
-    'reset-css',
-    '@/assets/variables.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -72,17 +70,6 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-    },
-    postcss: {
-      preset: {
-        // Change the postcss-preset-env settings
-        state: 3,
-        features: {
-          'nesting-rules': true,
-          'custom-properties': false
-        },
-        browsers: 'last 3 chrome versions, last 3 chromeandroid versions, last 3 firefox versions, last 3 opera versions, last 2 edge versions, safari >= 10, ios >= 10'
-      }
     }
   },
   generate: {
