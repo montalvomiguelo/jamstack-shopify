@@ -38,28 +38,24 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    'nuxt-graphql-request'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/apollo',
     'cookie-universal-nuxt'
   ],
   /**
-   * Apollo configuration
+   * GraphQL configuration
    *
    */
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: 'https://wb-barrel-store.myshopify.com/api/graphql',
-        httpLinkOptions: {
-          headers: {
-            'X-Shopify-Storefront-Access-Token': '0b8dcd15ac5a03fadaf2ce5fe03e331d'
-          }
-        }
+  graphql: {
+    endpoint: 'https://wb-barrel-store.myshopify.com/api/graphql',
+    options: {
+      headers: {
+        'X-Shopify-Storefront-Access-Token': '0b8dcd15ac5a03fadaf2ce5fe03e331d'
       }
     }
   },
@@ -85,6 +81,7 @@ export default {
     }
   },
   generate: {
+    fallback: true,
     exclude: [/cart/]
   }
 }
