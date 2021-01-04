@@ -15,11 +15,11 @@ export default {
     ProductFeatured,
     ProductDetails
   },
-  async fetch ({ store, error, params }) {
+  async fetch () {
     try {
-      await store.dispatch('product/fetchProduct', params.handle)
+      await this.$store.dispatch('product/fetchProduct', this.$route.params.handle)
     } catch (e) {
-      error({ statusCode: 404, message: 'Product not found' })
+      this.$nuxt.error({ statusCode: 404, message: 'Product not found' })
     }
   },
   computed: mapState({

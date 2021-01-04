@@ -43,12 +43,24 @@ export const actions = {
 
 export const getters = {
   images: (state) => {
+    if (!state.product.images) {
+      return
+    }
+
     return state.product.images.edges
   },
   featuredImage: (state, getters) => {
+    if (!getters.images) {
+      return
+    }
+
     return getters.images[0].node
   },
   featuredImageSrc: (state, getters) => {
+    if (!getters.featuredImage) {
+      return
+    }
+
     return getSizedImageUrl(getters.featuredImage.src, '1024x')
   },
   title: (state) => {
@@ -58,23 +70,39 @@ export const getters = {
     return state.product.descriptionHtml
   },
   variants: (state) => {
+    if (!state.product.variants) {
+      return
+    }
+
     return state.product.variants.edges
   },
   firstVariant: (state, getters) => {
     return getters.variants[0].node
   },
   hasOnlyDefaultVariant: (state, getters) => {
+    if (!getters.variants) {
+      return
+    }
+
     return (
       getters.variants.length === 1 &&
       ~getters.firstVariant.title.indexOf('Default')
     )
   },
   selectedVariant: (state, getters) => {
+    if (!getters.variants) {
+      return
+    }
+
     return getters.variants.find(variant => (
       variant.node.id === state.selectedVariantId
     ))
   },
   selectedVariantPrice: (state, getters) => {
+    if (!getters.selectedVariant) {
+      return
+    }
+
     const cents = getters.selectedVariant.node.priceV2.amount * 100
 
     return formatMoney(cents)

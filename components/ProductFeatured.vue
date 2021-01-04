@@ -20,6 +20,10 @@ export default {
       'title'
     ]),
     featuredImageAltText () {
+      if (!this.featuredImage) {
+        return
+      }
+
       return this.featuredImage.altText || this.title
     }
   }
