@@ -24,7 +24,7 @@
         <p class="flex mb-10 justify-between text-2xl">
           Subtotal <span>{{ subtotalPrice | money }}</span>
         </p>
-        <a class="block px-8 py-4 bg-black text-white text-center" :href="webUrl">Checkout</a>
+        <a class="button" :href="webUrl">Checkout</a>
       </div>
       <nuxt-link v-else :to="{ name: 'index' }" class="">
         Start Shopping

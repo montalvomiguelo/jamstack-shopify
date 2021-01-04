@@ -20,7 +20,7 @@
         </option>
       </select>
     </div>
-    <button type="submit" class="w-full px-8 py-4 bg-black text-white">
+    <button type="submit" class="button">
       Add to cart
     </button>
   </form>
